@@ -29,7 +29,7 @@
     </logger>
 
     <!-- Developer Logs Logger -->
-    <logger name="com.wsjv.controller" level="INFO" additivity="false">
+    <logger name="com.wsjv.controllers" level="INFO" additivity="false">
         <appender-ref ref="DEVELOPER_LOG" />
     </logger>
 

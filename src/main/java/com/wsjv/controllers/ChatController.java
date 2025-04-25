@@ -1,6 +1,6 @@
-package com.wsjv.controller;
+package com.wsjv.controllers;
 
-import com.wsjv.model.Message;
+import com.wsjv.models.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.messaging.handler.annotation.MessageMapping;

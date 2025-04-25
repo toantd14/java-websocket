@@ -1,4 +1,4 @@
-package com.wsjv.model;
+package com.wsjv.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
