@@ -1,4 +1,4 @@
-package com.wsjv.models;
+package com.zoomo.chat.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

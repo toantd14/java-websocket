@@ -1,26 +1,40 @@
 <configuration>
+    <!-- Logs directory by day -->
+    <property name="logDir" value="logs"/>
+
     <!-- Application Logs Appender -->
     <appender name="APPLICATION_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/application.log</file>
+        <file>${logDir}/app.log</file>
+
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>logs/application-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>${logDir}/app-%d{yyyy-MM-dd-HH}.log.gz</fileNamePattern>
+            <maxFileSize>5MB</maxFileSize>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
+
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- Developer Logs Appender -->
-    <appender name="DEVELOPER_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/developer.log</file>
+    <!-- Debug Logs Appender -->
+    <appender name="DEBUG_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logDir}/dev.log</file>
+
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>logs/developer-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>logs/dev-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxFileSize>5MB</maxFileSize>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
+
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
     </appender>
 
     <!-- Application Logs Logger -->
@@ -29,8 +43,8 @@
     </logger>
 
     <!-- Developer Logs Logger -->
-    <logger name="com.wsjv.controllers" level="INFO" additivity="false">
-        <appender-ref ref="DEVELOPER_LOG" />
+    <logger name="com.zoomo.chat.controllers" level="INFO" additivity="false">
+        <appender-ref ref="DEBUG_LOG" />
     </logger>
 
     <!-- Root Logger -->

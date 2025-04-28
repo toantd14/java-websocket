@@ -10,9 +10,9 @@
     </parent>
     <groupId>com</groupId>
     <artifactId>java-websocket</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>wsjv</name>
-    <description>wsjv</description>
+    <version>1.0.0</version>
+    <name>zoomo</name>
+    <description>zoomo</description>
     <url/>
     <licenses>
         <license/>

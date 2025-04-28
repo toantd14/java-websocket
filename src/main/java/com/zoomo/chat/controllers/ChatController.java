@@ -1,6 +1,6 @@
-package com.wsjv.controllers;
+package com.zoomo.chat.controllers;
 
-import com.wsjv.models.Message;
+import com.zoomo.chat.models.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -14,7 +14,7 @@ public class ChatController {
 
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
-    public Message sendMessage(Message message) {
+    public Message sendMessage(com.zoomo.chat.models.Message message) {
         logger.info("Chat Log - Timestamp: {}, User ID: {}, FullName: {}, Message: {}",
                 message.getTimestamp(), message.getId(), message.getFrom(), message.getText());
         System.out.println("Received message at " + message.getTimestamp() + " from user ID: "
